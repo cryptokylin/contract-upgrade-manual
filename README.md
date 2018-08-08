@@ -262,7 +262,7 @@ $ cleos multisig propose_trx createsudo producer_permissions.json create_sudo_ac
 BP 分别 approve
 
 ```
-cleos multisig approve blkproducera createsudo '{"actor": "BP_ACCOUNT", "permission": "active"}' -p BP_ACCOUNT
+cleos multisig approve PROPOSER_ACCOUNT createsudo '{"actor": "BP_ACCOUNT", "permission": "active"}' -p BP_ACCOUNT
 ```
 
 approval 达到 15/21 之后，执行该 proposal：
@@ -373,7 +373,7 @@ cleos multisig approve PROPOSER_ACCOUNT deploysudo '{"actor": "BP_ACCOUNT", "per
 approval 达到 15/21 之后，执行该 proposal：
 
 ```
-cleos multisig exec PROPOSER_ACCOUNT createsudo BP_ACCOUNT
+cleos multisig exec PROPOSER_ACCOUNT deploysudo BP_ACCOUNT
 ```
 
 *注意，任何账户都可以执行 approval 达到 15/21 的 proposal，即使该账户不是 BP。
