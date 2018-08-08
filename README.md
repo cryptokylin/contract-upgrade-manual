@@ -3,7 +3,7 @@
 
 ### 1. 使用 multisig 创建 eosio.sudo 账号
 
-####第一步，生成创建账户的 transaction 文件。
+#### 第一步，生成创建账户的 transaction 文件。
 
 ```
 cleos system newaccount -s -j -d --transfer --stake-net "1.000 EOS" --stake-cpu "1.000 EOS" --buy-ram-kbytes 50 eosio eosio.sudo EOS8MMUW11TAdTDxqdSwSqJodefSoZbFhcprndomgLi9MeR2o8MT4 > generated_account_creation_trx.json
@@ -59,7 +59,7 @@ $ cat generated_account_creation_trx.json
 }
 ```
 
-####第二步，创建一个名为 newaccount_payload.json 的文件，文件内容如下：
+#### 第二步，创建一个名为 newaccount_payload.json 的文件，文件内容如下：
 
 
 ```
@@ -89,7 +89,7 @@ $ cat newaccount_payload.json
 }
 ```
 
-####第三步，使用 newaccount_payload.json 生成最终创建账户的 transaction 数据：
+#### 第三步，使用 newaccount_payload.json 生成最终创建账户的 transaction 数据：
 
 使用 newaccount_payload.json 作为 newaccount 的 action data，生成最终创建账户的 transaction 数据
 
@@ -121,7 +121,7 @@ $ cat generated_newaccount_trx.json
 }
 ```
 
-####第四步，生成 setpriv 的 action data
+#### 第四步，生成 setpriv 的 action data
 
 生成 setpriv 的 action data，用于将 eosio.sudo 账户设置为 privileged account：
 
@@ -154,7 +154,7 @@ $ cat generated_setpriv_trx.json
 
 ```
 
-####第五步，准备最终的 transaction data。
+#### 第五步，准备最终的 transaction data。
 
 将 generated_newaccount_trx.json 复制一份，命名为 create_sudo_account_trx.json
 
@@ -220,7 +220,7 @@ $ cat create_sudo_account_trx.json
 
 ```
 
-####第六步，生成 producer_permissions.json 文件
+#### 第六步，生成 producer_permissions.json 文件
 
 假设网络中有 21 个 BP，名字分别为，blkproducera，blkproducerb，......，blkproduceru。则 producer_permissions.json 的文件内容如下图所示：
 
@@ -251,7 +251,7 @@ $ cat producer_permissions.json
 ]
 ```
 
-####第七步，Propose Approve and exec
+#### 第七步，Propose Approve and exec
 
 发起 proposal：
 
