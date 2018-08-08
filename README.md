@@ -271,7 +271,7 @@ approval 达到 15/21 之后，执行该 proposal：
 cleos multisig exec PROPOSER_ACCOUNT createsudo BP_ACCOUNT
 ```
 
-*注意，任何账户都可以执行 approval 达到 15/21 账户，即使该账户不是 BP。
+*注意，任何账户都可以执行 approval 达到 15/21 的 proposal，即使该账户不是 BP。
 
 
 Proposal 执行成功后，我们可以查看 eosio.sudo 这个账户，应该可以看到类似下面的输出：
@@ -376,7 +376,7 @@ approval 达到 15/21 之后，执行该 proposal：
 cleos multisig exec PROPOSER_ACCOUNT createsudo BP_ACCOUNT
 ```
 
-*注意，任何账户都可以执行 approval 达到 15/21 账户，即使该账户不是 BP。
+*注意，任何账户都可以执行 approval 达到 15/21 的 proposal，即使该账户不是 BP。
 
 
 Proposal 执行成功后，我们可以查看 eosio.sudo 的 code，应该可以看到类似下面的输出：
