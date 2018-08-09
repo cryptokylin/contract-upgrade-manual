@@ -9,7 +9,7 @@
 cleos system newaccount -s -j -d --transfer --stake-net "1.000 EOS" --stake-cpu "1.000 EOS" --buy-ram-kbytes 50 eosio eosio.sudo EOS8MMUW11TAdTDxqdSwSqJodefSoZbFhcprndomgLi9MeR2o8MT4 > generated_account_creation_trx.json
 ```
 
-上述命令中的公钥可随意指定，因为最终创建 eosio.sudo 的账号的 transaction 中使用的是 eosio@active 权限。
+上述命令中的公钥可随意指定，因为最终创建 eosio.sudo 账号的 transaction 中使用的是 eosio@active 权限。
 
 上述命令生成的 generated_account_creation_trx.json 文件内容如下：
 
@@ -59,7 +59,7 @@ $ cat generated_account_creation_trx.json
 }
 ```
 
-#### 第二步，创建一个名为 newaccount_payload.json 的文件，文件内容如下：
+#### 第二步，创建一个名为 newaccount_payload.json 的文件，指定 eosio.sudo 的账户权限为 eosio@active，文件内容如下：
 
 
 ```
@@ -89,7 +89,7 @@ $ cat newaccount_payload.json
 }
 ```
 
-#### 第三步，使用 newaccount_payload.json 生成最终创建账户的 transaction 数据：
+#### 第三步，使用 newaccount_payload.json 生成最终创建 eosio.sudo 账户的 transaction 数据：
 
 使用 newaccount_payload.json 作为 newaccount 的 action data，生成最终创建账户的 transaction 数据
 
@@ -160,7 +160,7 @@ $ cat generated_setpriv_trx.json
 
 编辑 create_sudo_account_trx.json 文件内容，将 ref_block_num 和 ref_block_prefix 设置为 0，将 expiration 的日期向后推迟一定的时间（比如 1 天后），这个时间表示 transaction 的过期时间。由于这个 transaction 最终需要等待 BP 多签生效，因此过期时间不能太短。
 
-将 generated_account_creation_trx.json 中除了第一个 action 之外的 action，追加到 create_sudo_account_trx.json 文件中 newaccount 这个 action 的后面。将 generated_setpriv_trx.json 文件中的 action 追加到 create_sudo_account_trx.json 文件中 action 列表的最后。
+将 generated_account_creation_trx.json 中除了第一个 action 之外其余的 action(buyrambytes 和 delegatebw)，追加到 create_sudo_account_trx.json 文件中 newaccount 这个 action 的后面。将 generated_setpriv_trx.json 文件中的 setpriv action 追加到 create_sudo_account_trx.json 文件中 action 列表的最后。
 
 最终得到一个类似下面这一结构的 create_sudo_account_trx.json 文件，该文件可以被用于通过 multisig 提起 proposal 供 BP 多签进行升级。
 
@@ -222,7 +222,7 @@ $ cat create_sudo_account_trx.json
 
 #### 第六步，生成 producer_permissions.json 文件
 
-假设网络中有 21 个 BP，名字分别为，blkproducera，blkproducerb，......，blkproduceru。则 producer_permissions.json 的文件内容如下图所示：
+假设网络中有 21 个 BP，名字分别为，blkproducera，blkproducerb，......，blkproduceru。则 producer_permissions.json 的文件内容如下所示：
 
 ```
 $ cat producer_permissions.json
@@ -251,7 +251,7 @@ $ cat producer_permissions.json
 ]
 ```
 
-#### 第七步，Propose Approve and exec
+#### 第七步，发起多签 proposal，approve 并执行
 
 发起 proposal：
 
@@ -352,7 +352,7 @@ $ cat deploy_sudo_contract_trx.json
 }
 ```
 
-紧接着，将上述文件中的 ref_block_num 和 ref_block_prefix 改为 0，将 expiration 的日期向后推迟一定的时间（比如 1 天后），这个时间表示 transaction 的过期时间。由于这个 transaction 最终需要等待 BP 多签生效，因此过期时间不能太短。
+将上述文件中的 ref_block_num 和 ref_block_prefix 改为 0，将 expiration 的日期向后推迟一定的时间（比如 1 天后），这个时间表示 transaction 的过期时间。由于这个 transaction 最终需要等待 BP 多签生效，因此过期时间不能太短。
 
 #### 第二步，Propose， Approve and exec
 
@@ -388,7 +388,7 @@ cleos get code eosio.sudo
 
 至此，eosio.sudo 合约就通过多签的方式部署成功了。
 
-接下来，我们可以试着使用多签调用 sudo 合约，执行一些诸如更改 owner key 等操作。
+接下来，我们可以试着使用多签调用 sudo 合约，执行一些诸如更改 key，转账等操作，验证 sudo 合约可以正确执行。
 
 
 
