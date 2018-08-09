@@ -2,7 +2,7 @@
 
 ### 准备测试账户
 
-Kylin 测试网络新建了两个账户用于本次测试，分别为 `updatemyauth` 和 `transmytoken`，两个账户的 active 和 owner key 均为 `EOS1111111111111111111111111111111114T1Anm`，如下所示：
+Kylin 测试网络新建了两个账户用于 sudo 合约测试，分别为 `updatemyauth` 和 `transmytoken`，两个账户的 active 和 owner key 均为 `EOS1111111111111111111111111111111114T1Anm`，如下所示：
 
 ```
 cleos -u https://api-kylin.eoslaomao.com get account updatemyauth
@@ -53,6 +53,8 @@ EOS balances:
      total:           100.0000 EOS
 ```
 
+其中 transmytoken 账户有 100 EOS 的余额，用于 CASE3 测试。
+
 在线查看 Kylin 网络中的上述账户，请访问：
 
 https://tools.cryptokylin.io/#/tx/updatemyauth
@@ -62,10 +64,10 @@ https://tools.cryptokylin.io/#/tx/transmytoken
 
 
 
-### CASE 1. 变更 updatemyauth 账户的 active key
+### CASE 1. sudo 变更 updatemyauth 账户的 active key
 
 
-#### 第一步，生成 updateauth 的 transaction 数据
+#### 第一步，生成变更 active key 的 transaction 数据
 
 我们将 updatemyauth 账户的 active key 改为 EOS6GR1JqeNmp5d7FGRt3Rx1BGQ1QxUk65nkfcnuprAs1BVNNWqSD
 
@@ -205,7 +207,7 @@ Kylin 测试网络中已经提交 updateactive proposal：https://tools.cryptoky
 
 ### CASE 2. sudo 变更 updatemyauth 账户的 owner key
 
-我们将 updatemyauth 账户的 active key 改为 EOS6GR1JqeNmp5d7FGRt3Rx1BGQ1QxUk65nkfcnuprAs1BVNNWqSD
+我们将 updatemyauth 账户的 owner key 改为 EOS6GR1JqeNmp5d7FGRt3Rx1BGQ1QxUk65nkfcnuprAs1BVNNWqSD
 
 CASE 2 和 CASE 1 类似，唯一的不同在于第一步骤的时候，生成 updatemyauth.json 的命令稍有不同。
 
@@ -262,7 +264,3 @@ cat transmytoken.json
 其余步骤请参考 CASE1。
 
 Kylin 测试网络中已经提交 transtoken proposal：https://tools.cryptokylin.io/#/msig?proposer=eoslaomaocom&proposal=transtoken
-
-
-
-
