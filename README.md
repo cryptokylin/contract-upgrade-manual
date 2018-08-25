@@ -7,6 +7,6 @@ This repo contains manual docs for contract upgrade and deploy.
 
 # Manual List/文档列表
 
-1. Deploy Sudo Contract/部署 sudo 合约：(deploy-sudo-contract.md)[./deploy-sudo-contract.md]
+1. Deploy Sudo Contract/部署 sudo 合约：[deploy-sudo-contract.md](./deploy-sudo-contract.md)
 
-2. Test Sudo Contract/测试 sudo 合约：(test-sudo-contract.md)[./test-sudo-contract.md]
+2. Test Sudo Contract/测试 sudo 合约：[test-sudo-contract.md](./test-sudo-contract.md)
