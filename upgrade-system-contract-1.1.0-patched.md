@@ -12,6 +12,11 @@
 
 1.1.0 patch 版本的 build 位于本项目的 `eosio.system-1.1.0-patched` 目录。
 
+本次升级合约的目标：
+
+1. 部署 patch 版 1.1.0 系统合约。
+2. 将除了 eosio 之外的系统账户的 RAM 设定为该账户当前已用的 RAM 值。
+
 
 ## 升级系统合约
 
@@ -94,7 +99,7 @@ eosio.stake = 403952
 拿账户 eosio.bpay 举例，通过调用 setalimits 接口，可以得到将 eosio.bpay 的 RAM 限制为 5184 byte 的 transaction 数据：
 
 ```
-cleos push action -s -j -d eosio setalimits '{"account": "eosio.vpay", "ram_bytes": 5184, "net_weight": -1, "cpu_weight": -1}' > eosio.vpay.json
+cleos push action -s -j -d eosio setalimits '{"account": "eosio.vpay", "ram_bytes": 8720, "net_weight": -1, "cpu_weight": -1}' > eosio.vpay.json
 ```
 
 其文件内容如下：
