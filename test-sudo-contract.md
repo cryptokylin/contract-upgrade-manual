@@ -184,7 +184,7 @@ $ cat producer_permissions.json
 发起 proposal：
 
 ```
-$ cleos multisig propose_trx updateactive producer_permissions.json create_sudo_account_trx.json PROPOSER_ACCOUNT
+$ cleos multisig propose_trx updateactive producer_permissions.json sudo_update_updatemyauth_active_trx.json PROPOSER_ACCOUNT
 ```
 
 BP 分别 approve
