@@ -1,4 +1,4 @@
-# Test eosio.sudo on Kylin Testnet
+# Test eosio.wrap on Kylin Testnet
 
 ### 准备测试账户
 
@@ -53,7 +53,7 @@ EOS balances:
      total:           100.0000 EOS
 ```
 
-其中 transmytoken 账户有 100 EOS 的余额，用于 CASE3 测试。
+其中 transmytoken 账户有 100 EOS 的余额，用于 CASE 3 测试。
 
 在线查看 Kylin 网络中的上述账户，请访问：
 
@@ -111,7 +111,7 @@ cat updatemyauth.json
 生成 sudo_update_updatemyauth_active_trx.json 文件：
 
 ```
-cleos sudo exec -s -j -d BP_ACCOUNT updatemyauth.json > sudo_update_updatemyauth_active_trx.json
+cleos wrap exec -s -j -d BP_ACCOUNT updatemyauth.json > sudo_update_updatemyauth_active_trx.json
 
 cat sudo_update_updatemyauth_active_trx.json
 
