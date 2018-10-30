@@ -2,7 +2,7 @@
 
 ### 准备测试账户
 
-Kylin 测试网络新建了两个账户用于 sudo 合约测试，分别为 `updatemyauth` 和 `transmytoken`，两个账户的 active 和 owner key 均为 `EOS1111111111111111111111111111111114T1Anm`，如下所示：
+Kylin 测试网络新建了两个账户用于 wrap 合约测试，分别为 `updatemyauth` 和 `transmytoken`，两个账户的 active 和 owner key 均为 `EOS1111111111111111111111111111111114T1Anm`，如下所示：
 
 ```
 cleos -u https://api-kylin.eoslaomao.com get account updatemyauth
@@ -64,7 +64,7 @@ https://tools.cryptokylin.io/#/tx/transmytoken
 
 
 
-### CASE 1. sudo 变更 updatemyauth 账户的 active key
+### CASE 1. wrap 变更 updatemyauth 账户的 active key
 
 
 #### 第一步，生成变更 active key 的 transaction 数据
@@ -106,7 +106,7 @@ cat updatemyauth.json
 
 将上述文件中的 ref_block_num 和 ref_block_prefix 改为 0，将 expiration 改为 `1970-01-01T00:00:00`
 
-#### 第二步，调用 sudo 合约执行上述命令，生成最终的 transaction data
+#### 第二步，调用 wrap 合约执行上述命令，生成最终的 transaction data
 
 生成 sudo_update_updatemyauth_active_trx.json 文件：
 
@@ -124,7 +124,7 @@ cat sudo_update_updatemyauth_active_trx.json
   "delay_sec": 0,
   "context_free_actions": [],
   "actions": [{
-      "account": "eosio.sudo",
+      "account": "eosio.wrap",
       "name": "exec",
       "authorization": [{
           "actor": "eoslaomaocom",
