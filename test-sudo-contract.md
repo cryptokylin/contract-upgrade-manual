@@ -205,7 +205,7 @@ Kylin 测试网络中已经提交 updateactive proposal：https://tools.cryptoky
 
 
 
-### CASE 2. sudo 变更 updatemyauth 账户的 owner key
+### CASE 2. wrap 变更 updatemyauth 账户的 owner key
 
 我们将 updatemyauth 账户的 owner key 改为 EOS6GR1JqeNmp5d7FGRt3Rx1BGQ1QxUk65nkfcnuprAs1BVNNWqSD
 
@@ -222,7 +222,7 @@ cleos set account permission -s -j -d updatemyauth owner EOS6GR1JqeNmp5d7FGRt3Rx
 Kylin 测试网络中已经提交 updateowner proposal：https://tools.cryptokylin.io/#/msig?proposer=eoslaomaocom&proposal=updateowner
 
 
-### CASE 3. sudo 转移 transmytoken 账户中的 EOS
+### CASE 3. wrap 转移 transmytoken 账户中的 EOS
 
 #### 第一步，生成 transfer data
 
